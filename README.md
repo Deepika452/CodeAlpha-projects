@@ -1,48 +1,150 @@
-Basic Calculator – CodeAlpha Internship
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculator</title>
 
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #e6e6e6;
+      font-family: Arial, sans-serif;
+    }
 
-This project is a simple and responsive calculator web application developed as part of the CodeAlpha Internship Program.
-It allows users to perform basic arithmetic operations using a clean and interactive interface, supporting both mouse clicks and real-time input.
+    .calculator {
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 15px;
+      width: 270px;
+      border: 3px solid #333;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
 
-📌 Project Overview
-The calculator performs all standard arithmetic operations:
+    #display {
+      width: 100%;
+      height: 55px;
+      margin-bottom: 15px;
+      font-size: 24px;
+      text-align: right;
+      padding: 10px;
+      border-radius: 8px;
+      border: 2px solid #555;
+      outline: none;
+      background: #000;
+      color: #0f0;
+      box-sizing: border-box;
+    }
 
-Addition (+)
-Subtraction (−)
-Multiplication (×)
-Division (÷)
-It features:
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
 
-A display screen showing current input and results
-Clickable buttons for numbers and operators
-Clear screen functionality with the “C” button
-Real-time calculation using JavaScript
-This project demonstrates DOM manipulation, event handling, and basic arithmetic logic implementation in JavaScript.
+    button {
+      padding: 15px;
+      font-size: 18px;
+      border-radius: 8px;
+      border: 2px solid #555;
+      background: #2c2c2c;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+    }
 
-🚀 Features
-Interactive buttons for numbers 0–9
-Operators: +, −, ×, ÷
-Clear screen functionality (C button)
-Real-time calculation using Function()
-Error handling for invalid input
-Clean and responsive UI with hover effects
-Gradient background and styled buttons for a modern look
-🛠 Technologies Used
-HTML
-CSS
-JavaScript
-🎨 User Interface
-Display input and result on the top
-Grid layout for buttons (4 columns)
-Hover animation and button styling
-Responsive design centered on the page
-⌨ Keyboard Support (Optional for future improvement)
-Could be extended to support number and operator keys
-📂 How to Run
-Clone or download this repository.
-Open the index.html file in your web browser.
-Start performing calculations using the buttons.
+    button:hover {
+      background: #444;
+      border-color: #888;
+    }
 
+    .operator {
+      background: #ff9500;
+      border-color: #cc7a00;
+    }
 
-👤 Author
-M.Deepika
+    .operator:hover {
+      background: #e08900;
+    }
+
+    .equal {
+      background: #28a745;
+      grid-column: span 2;
+      border-color: #1e7e34;
+    }
+
+    .equal:hover {
+      background: #218838;
+    }
+
+    .clear {
+      background: #dc3545;
+      grid-column: span 2;
+      border-color: #a71d2a;
+    }
+
+    .clear:hover {
+      background: #c82333;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="calculator">
+  <input type="text" id="display" readonly>
+
+  <div class="buttons">
+    <button class="clear">C</button>
+    <button>/</button>
+    <button>*</button>
+
+    <button>7</button>
+    <button>8</button>
+    <button>9</button>
+    <button class="operator">-</button>
+
+    <button>4</button>
+    <button>5</button>
+    <button>6</button>
+    <button class="operator">+</button>
+
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+
+    <button>0</button>
+    <button>.</button>
+    <button class="equal">=</button>
+  </div>
+</div>
+
+<script>
+  const display = document.getElementById("display");
+  const buttons = document.querySelectorAll("button");
+
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      const value = button.textContent;
+
+      if (value === "C") {
+        display.value = "";
+      } 
+      else if (value === "=") {
+        try {
+          display.value = eval(display.value);
+        } catch {
+          display.value = "Error";
+        }
+      } 
+      else {
+        display.value += value;
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
