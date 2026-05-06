@@ -1,4 +1,6 @@
 Basic Calculator – CodeAlpha Internship
+
+
 This project is a simple and responsive calculator web application developed as part of the CodeAlpha Internship Program.
 It allows users to perform basic arithmetic operations using a clean and interactive interface, supporting both mouse clicks and real-time input.
 
@@ -40,5 +42,7 @@ Could be extended to support number and operator keys
 Clone or download this repository.
 Open the index.html file in your web browser.
 Start performing calculations using the buttons.
+
+
 👤 Author
 M.Deepika
